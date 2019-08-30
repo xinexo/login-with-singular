@@ -1,0 +1,22 @@
+{
+  "name": "login-with-singular",
+  "version": "1.0.0",
+  "description": "login-with-singular",
+  "author": "Singular.Live",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server/main",
+    "production": "SET NODE_ENV=production & node ./server/main"
+  },
+  "engines": {
+    "node": "6.10.3"
+  },
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "^4.12.3",
+    "express-session": "^1.13.0",
+    "express-validator": "^2.20.3",
+    "superagent": "^5.1.0"
+  },
+  "devDependencies": {}
+}
