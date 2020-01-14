@@ -1,6 +1,7 @@
 var superagent = require('superagent');
 
-var SINGULAR_SERVER = 'https://singular-staging4.herokuapp.com';
+//var SINGULAR_SERVER = 'https://singular-staging4.herokuapp.com';
+var SINGULAR_SERVER = 'http://localhost:3000';
 var CLIENT_ID = 'f6fce93827c5f8b2684ac18ffcbe0f6734eb7daa7927590abba1aeb78199267c1e6e380500b322bfa4647f2e2ebb84d3';
 var CLIENT_SECRET = '358fbdbd5b60313a3946eb6efd788661f3be1afded6f7391d465832327fa207a17d7d1ea1279486055433847612e3838';
 
@@ -40,7 +41,8 @@ module.exports = function (app) {
           .set('Authorization', 'Bearer ' + accessToken)
           .end(function(userErr, userRes) {
             //console.log(userRes.body);
-            res.json('Your name is ' + userRes.body.name + ' with email address ' + userRes.body.email);
+            res.json('Your name is ' + userRes.body.name + ' with email address ' + userRes.body.email 
+              + '<br/><a href="https://singular-staging4.herokuapp.com/users/logout">Logout</a>');
           });
         }
       });
