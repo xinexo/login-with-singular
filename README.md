@@ -76,23 +76,23 @@ Prepare your callback URL to accept <strong>{callback url}?code={code} </strong>
 4. [your web server] \
 Send HTTP POST request with the fields 
 
-**code: {code returned from Singular}**
+    **code: {code returned from Singular}**
 
 
-**client_id: _{client_id from the OAuth settings UI} _**
+    **client_id: _{client_id from the OAuth settings UI} _**
 
 
-**client_secret: _ {client_secret from the OAuth settings UI}_**
+    **client_secret: _ {client_secret from the OAuth settings UI}_**
 
 
-Send the request to: \
+    Send the request to: \
 `https://app.singular.live/oauth/accesstoken` 
 
 
-Singular returns the **_access token_**.
+    Singular returns the **_access token_**.
 
 
-**Note: The access token is valid for six months. You have to request a new month.**
+    **Note: The access token is valid for six months. You have to request a new month.**
 
 5. [your web server] \
 Keep this access token. You can use it on every request to the Singular apiv1 with Bearer authorization.  \
