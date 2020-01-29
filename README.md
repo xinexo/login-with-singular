@@ -15,15 +15,7 @@ The “Login with Singular” uses basic authentication over HTTPS, as described
 You can integrate the Singular Login Dialog into your application. Users enter their username and password to authenticate with Singular. Your server will receive an access token, which is used to access Singular on behalf of the specific user.
 
 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/Authenticate-with0.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/Authenticate-with0.png "image_tooltip")
-
-
 To use the Login Dialog, you need to:
-
 
 
 1. Get the **_client id_** and create the **_client secret_** for your account 
@@ -48,22 +40,7 @@ A detailed description for “How do I change user permissions” is available h
 
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/Authenticate-with1.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/Authenticate-with1.png "image_tooltip")
-
-
-
-
 2. Open the “**OAuth Client**” Settings to copy your “**Client Id,**” generate your “**Client Secret**” and enter the “**Callback URL.**”
-
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/Authenticate-with2.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/Authenticate-with2.png "image_tooltip")
 
 
 
@@ -77,14 +54,6 @@ Github Repository: [https://github.com/xinexo/login-with-singular](https://githu
 
 
 # Client-Server Communication to get the Access Token
-
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![drawing](https://docs.google.com/a/google.com/drawings/d/12345/export/png)
-
 
 
 1. Call the login dialog with your **_client id_**
