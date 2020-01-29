@@ -76,7 +76,7 @@ Prepare your callback URL to accept <strong>{callback url}?code={code} </strong>
 4. [your web server] \
 Send HTTP POST request with the fields 
 
-        <strong>code: <em>{code returned from Singular}</em></strong>
+        **code: {code returned from Singular}**
 
 
         **client_id: _{client_id from the OAuth settings UI} _**
