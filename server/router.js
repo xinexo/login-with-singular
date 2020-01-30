@@ -2,8 +2,8 @@ var superagent = require('superagent');
 
 var SINGULAR_SERVER = 'https://singular-staging4.herokuapp.com';
 //var SINGULAR_SERVER = 'http://localhost:3000';
-var CLIENT_ID = '472ea7a03e788befb6454f5a2c462eff73f3318b5217e576a368c4e3d93e41ed2e805da9c47d0160015dccb0389ac7c4'; // '[ENTER_YOUR_CLIENT_ID]'
-var CLIENT_SECRET = '672b220b1becaabc1911e4d79e6df9030422e73c5ee4dde36e6dd367801dedac102480a9d1b3d7551ac49070b069e751'; // '[ENTER_YOUR_CLIENT_SECRET]'
+var CLIENT_ID = 'f6fce93827c5f8b2684ac18ffcbe0f6734eb7daa7927590abba1aeb78199267c1e6e380500b322bfa4647f2e2ebb84d3'; // '[ENTER_YOUR_CLIENT_ID]'
+var CLIENT_SECRET = '358fbdbd5b60313a3946eb6efd788661f3be1afded6f7391d465832327fa207a17d7d1ea1279486055433847612e3838'; // '[ENTER_YOUR_CLIENT_SECRET]'
 
 module.exports = function (app) {
 
