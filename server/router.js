@@ -2,7 +2,7 @@ var superagent = require('superagent');
 
 var SINGULAR_SERVER = 'https://app.singular.live';
 //var SINGULAR_SERVER = 'http://localhost:3000';
-var CLIENT_ID = '[YOUR_CLIENT_ID]';
+var CLIENT_ID = '[_YOUR_CLIENT_ID_]';
 var CLIENT_SECRET = '[YOUR_CLIENT_SECRET]';
 
 module.exports = function (app) {
