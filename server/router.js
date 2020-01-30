@@ -1,3 +1,7 @@
+// NOTE:
+// the URLs pointing to https://singular-staging4.herokuapp.com are temporary.
+// You have to replace this URL by https://app.singular.live after the next release has been published in Feb 2020
+
 var superagent = require('superagent');
 
 var SINGULAR_SERVER = 'https://singular-staging4.herokuapp.com';
@@ -43,7 +47,7 @@ module.exports = function (app) {
           .end(function(userErr, userRes) {
             //console.log(userRes.body);
             res.send('Your name is ' + userRes.body.name + ' with email address ' + userRes.body.email 
-              + '<br/><a href="https://app.singular.live/users/logout">Logout</a>');
+              + '<br/><a href="https://singular-staging4.herokuapp.com/users/logout">Logout</a>');
           });
         }
       });
