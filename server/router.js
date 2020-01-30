@@ -3,7 +3,7 @@ var superagent = require('superagent');
 var SINGULAR_SERVER = 'https://app.singular.live';
 //var SINGULAR_SERVER = 'http://localhost:3000';
 var CLIENT_ID = '472ea7a03e788befb6454f5a2c462eff73f3318b5217e576a368c4e3d93e41ed2e805da9c47d0160015dccb0389ac7c4'; // '[ENTER_YOUR_CLIENT_ID]'
-var CLIENT_SECRET = '6e463f8529f733c2c7b7abd14a7976ba1255294db77c2574ddbb71f4e0568fd9dda4b3abb04929cbfb4683b32361ee8d'; // '[ENTER_YOUR_CLIENT_SECRET]'
+var CLIENT_SECRET = '672b220b1becaabc1911e4d79e6df9030422e73c5ee4dde36e6dd367801dedac102480a9d1b3d7551ac49070b069e751'; // '[ENTER_YOUR_CLIENT_SECRET]'
 
 module.exports = function (app) {
 
