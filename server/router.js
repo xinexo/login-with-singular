@@ -2,8 +2,8 @@ var superagent = require('superagent');
 
 var SINGULAR_SERVER = 'https://app.singular.live/';
 //var SINGULAR_SERVER = 'http://localhost:3000';
-var CLIENT_ID = 'f6fce93827c5f8b2684ac18ffcbe0f6734eb7daa7927590abba1aeb78199267c1e6e380500b322bfa4647f2e2ebb84d3'; // '[ENTER_YOUR_CLIENT_ID]'
-var CLIENT_SECRET = '358fbdbd5b60313a3946eb6efd788661f3be1afded6f7391d465832327fa207a17d7d1ea1279486055433847612e3838'; // '[ENTER_YOUR_CLIENT_SECRET]'
+var CLIENT_ID = '[ENTER_YOUR_CLIENT_ID]';
+var CLIENT_SECRET = '[ENTER_YOUR_CLIENT_SECRET]';
 
 module.exports = function (app) {
 
