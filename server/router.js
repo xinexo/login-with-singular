@@ -46,8 +46,10 @@ module.exports = function (app) {
           .set('Authorization', 'Bearer ' + accessToken)
           .end(function(userErr, userRes) {
             //console.log(userRes.body);
-            res.send('Your name is ' + userRes.body.name + ' with email address ' + userRes.body.email 
-              + '<br/><a href="https://singular-staging4.herokuapp.com/users/logout">Logout</a>');
+            res.render('demo', {
+              user: userRes.body,
+              singularUrlBase: SINGULAR_SERVER
+            });
           });
         }
       });
