@@ -3,47 +3,65 @@
     document.addEventListener("DOMContentLoaded", function (event) {
         var frame = document.getElementById('frame');
         frame.onload = function () {
-            window.removeEventListener('message', onBrowserClicked);
-            window.addEventListener('message', onBrowserClicked);
+            window.removeEventListener('message', onBrowserMessageReceived);
+            window.addEventListener('message', onBrowserMessageReceived);
         };
     });
 
-    function onBrowserClicked(msg) {
-        if (msg.data) {
-            var data = msg.data;
-            
-            var selectedId = document.getElementById('selectedId');
-            var selectedName = document.getElementById('selectedName');
-            var selectedType = document.getElementById('selectedType');
-            var selectedArea = document.getElementById('selectedArea');
-            
-            selectedArea.style.display = 'block';
+    function onBrowserMessageReceived(msg) {
+        // check if it is a valid message.
+        if (!msg.data || !msg.data.params) {
+            return;
+        }
+        var data = msg.data;
 
-            if (data.params && data.params.event == 'composition_selected') {
+        var selectedArea = document.getElementById('selectedArea');
+        selectedArea.style.display = 'block';
+
+        var selectedId = document.getElementById('selectedId');
+        var selectedName = document.getElementById('selectedName');
+        var selectedType = document.getElementById('selectedType');
+        var selectedUrl = document.getElementById('selectedUrl');
+        var selectedLink = document.getElementById('selectedLink');
+
+
+        selectedName.innerHTML = 'Name = ' + data.name;
+        selectedLink.innerHTML = '<a href="' + data.url + '" target="_blank">' + data.url + '</a>';
+
+        // what type of message is it?
+        switch (data.params.event) {
+            case 'composition_selected':
                 selectedType.innerHTML = 'Type = Composition';
-                selectedName.innerHTML = 'Name = ' + data.name;
                 selectedId.innerHTML = 'ID = ' + data.params.composition.refId;
-            } else if (data.action && data.action == 'ADD_INPUT') {
+                selectedUrl.innerHTML = 'URL = ' + data.params.composition.url;
+                break;
+            case 'app_selected':
                 selectedType.innerHTML = 'Type = App';
-                selectedName.innerHTML = 'Name = ' + data.payload.displayName;
-                selectedId.innerHTML = 'Output URL = ' + data.payload.src;
-            } else if (data.params && data.params.event == 'image_selected') {
+                selectedId.innerHTML = 'ID = ' + data.params.app.refId;
+                selectedUrl.innerHTML = 'URL = ' + data.params.app.url;
+                break;
+            case 'image_selected':
                 selectedType.innerHTML = 'Type = Image';
-                selectedName.innerHTML = 'Name = ' + data.name;
-                selectedId.innerHTML = 'URL = ' + data.params.image.url;
-            } else if (data.params && data.params.event == 'audio_selected') {
+                selectedId.innerHTML = 'ID = ' + data.params.image.refId;
+                selectedUrl.innerHTML = 'URL = ' + data.params.image.url;
+                break;
+            case 'audio_selected':
                 selectedType.innerHTML = 'Type = Audio';
-                selectedName.innerHTML = 'Name = ' + data.name;
-                selectedId.innerHTML = 'URL = ' + data.params.audio.url;
-            }
+                selectedId.innerHTML = 'ID = ' + data.params.audio.refId;
+                selectedUrl.innerHTML = 'URL = ' + data.params.audio.url;
+                break;
+            default:
+                selectedArea.style.display = 'none';
+                break;
         }
     }
 
     function showBrowser(type) {
+        // construct the browser URL
         frame.src = '<%= singularUrlBase %>/externals/browser?type=' + type + '&showSearch=true&showHeader=true';
 
-        var selectedArea = document.getElementById('selectedArea');
-        selectedArea.style.display = 'none';
+        // hide the fields that show the select element
+        document.getElementById('selectedArea').style.display = 'none';
     }
 </script>
 
@@ -73,6 +91,8 @@
                         <div id="selectedType"></div>
                         <div id="selectedId"></div>
                         <div id="selectedName"></div>
+                        <div id="selectedUrl"></div>
+                        <div id="selectedLink"></div>
                     </p>
                 </div>
             </td>
