@@ -1,8 +1,12 @@
 <html>
 <script type="text/javascript">
+
+    var singularBrowserIframe;
+
     document.addEventListener("DOMContentLoaded", function (event) {
-        var frame = document.getElementById('frame');
-        frame.onload = function () {
+        // register a message to the singular browser iframe
+        singularBrowserIframe = document.getElementById('SingularBrowserIframe');
+        singularBrowserIframe.onload = function () {
             window.removeEventListener('message', onBrowserMessageReceived);
             window.addEventListener('message', onBrowserMessageReceived);
         };
@@ -57,10 +61,12 @@
     }
 
     function showBrowser(type) {
-        // construct the browser URL
-        frame.src = '<%= singularUrlBase %>/externals/browser?type=' + type + '&showSearch=true&showHeader=true';
+        // construct a URL for the browser we want and load it into the iFrame
+        if (singularBrowserIframe) {
+            singularBrowserIframe.src = '<%= singularUrlBase %>/externals/browser?type=' + type + '&showSearch=true&showHeader=true';
+        }
 
-        // hide the fields that show the select element
+        // hide the fields that show the select element when we load a new browser
         document.getElementById('selectedArea').style.display = 'none';
     }
 </script>
@@ -68,23 +74,23 @@
 <body>
     <table style="width: 100%">
         <tr>
-            <td style="vertical-align: top; width: 30%">
+            <td style="vertical-align: top; width: 25%">
                 <h2>Your profile</h2>
                 <ul>
                     <li>Name = <%= user.name %></li>
                     <li>Email = <%= user.email %></li>
                 </ul>
-                <h2>Play with browsers</h2>
+                <h2>Test Singular browsers</h2>
                 <ul>
-                    <li><a href='#' onClick="showBrowser('composition')">Open Composition Browser</a></li>
-                    <li><a href='#' onClick='showBrowser("appinstance")'>Open App Browser</a></li>
-                    <li><a href='#' onClick='showBrowser("image")'>Open Image Browser</a></li>
-                    <li><a href='#' onClick='showBrowser("audio")'>Open Audio Browser</a></li>
+                    <li><a href='#' onClick="showBrowser('composition')">Composition Browser</a></li>
+                    <li><a href='#' onClick='showBrowser("appinstance")'>App Browser</a></li>
+                    <li><a href='#' onClick='showBrowser("image")'>Image Browser</a></li>
+                    <li><a href='#' onClick='showBrowser("audio")'>Audio Browser</a></li>
                 </ul>
                 <a href="<%= singularUrlBase %>/users/logout">Logout</a>
             </td>
             <td style="vertical-align: top;">
-                <iframe id="frame" style="border: 0px; width: 100%; height: 600px"></iframe>
+                <iframe id="SingularBrowserIframe" style="border: 0px; width: 100%; height: 600px"></iframe>
                 <div id="selectedArea" style="display:none">
                     <h3>Selected Element</h3>
                     <p>

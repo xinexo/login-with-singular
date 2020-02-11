@@ -24,8 +24,8 @@ function startServer() {
   // Router
   require(__dirname + '/router')(app);
 
-  // Run production server
+  // Run the server
   app.listen(port, function () {
-    console.log('Production server running on port ' + port);
+    console.log('Server running on port ' + port);
   });
 }
