@@ -7,6 +7,20 @@ var SINGULAR_SERVER = 'https://app.singular.live';
 var CLIENT_ID = '472ea7a03e788befb6454f5a2c462eff73f3318b5217e576a368c4e3d93e41ed2e805da9c47d0160015dccb0389ac7c4'; // '[ENTER_YOUR_CLIENT_ID]';
 var CLIENT_SECRET = '672b220b1becaabc1911e4d79e6df9030422e73c5ee4dde36e6dd367801dedac102480a9d1b3d7551ac49070b069e751'; // '[ENTER_YOUR_CLIENT_SECRET]';
 
+if (process.env.SINGULAR_SERVER != null && process.env.SINGULAR_SERVER != undefined) {
+  SINGULAR_SERVER = process.env.SINGULAR_SERVER;
+  console.log('using SINGULAR_SERVER =>', SINGULAR_SERVER);
+}
+
+if (process.env.SINGULAR_CLIENT_ID != null && process.env.SINGULAR_CLIENT_ID != undefined) {
+  CLIENT_ID = process.env.SINGULAR_CLIENT_ID;
+  console.log('using CLIENT_ID =>', CLIENT_ID);
+}
+
+if (process.env.SINGULAR_CLIENT_SECRET != null && process.env.SINGULAR_CLIENT_SECRET != undefined) {
+  CLIENT_SECRET = process.env.SINGULAR_CLIENT_SECRET;
+  console.log('using CLIENT_SECRET =>', CLIENT_SECRET);
+}
 
 module.exports = function (app) {
 
